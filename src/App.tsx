@@ -1,5 +1,5 @@
 import { BrowserRouter } from 'react-router-dom'
-import { Navbar, Alert, About, Skills, Experience, Contact } from './components'
+import { Navbar, Alert, About, Skills, Experience, ContactMe } from './components'
 import { Provider } from 'react-redux'
 import { store } from 'redux/store'
 
@@ -11,7 +11,7 @@ const App = () => (
             <About />
             <Skills />
             <Experience />
-            <Contact />
+            <ContactMe />
         </BrowserRouter>
     </Provider>
 )
