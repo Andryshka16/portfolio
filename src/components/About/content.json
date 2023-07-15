@@ -1,0 +1,17 @@
+{
+    "EN": {
+        "greeting": "Hi, i am Andrey Lapchik",
+        "description": "17-year-old computer science student from Latvia specializing in full-stack development, and passionate about creating efficient web applications.",
+        "speciality": "Full-stack web developer"
+    },
+    "LV": {
+        "greeting": "Sveiki, esmu Andrejs Lapčiks",
+        "description": "17 gadus vecs datorzinātnes students no Latvijas, specializējos web izstrādē un aizraujos ar efektīvu tīmekļa lietojumprogrammu izveidi.",
+        "speciality": "Full-stack web izstrādātājs"
+    },
+    "RU": {
+        "greeting": "Привет, я Андрей Лапчик",
+        "description": "17-летний студент компьютерных наук из Латвии, специализирующийся на web разработке, и увлеченный созданием эффективных веб-приложений.",
+        "speciality": "Full-stack web разработчик"
+    }
+}

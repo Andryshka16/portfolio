@@ -1,0 +1,29 @@
+{
+    "EN": {
+        "title": "Experience",
+        "description": "Since 2021, I've gained programming experience through olympiads, projects, freelancing, and coding challenges. These experiences improved my problem-solving skills and expanded my tech knowledge. I am ready to make an effective contribution to the future of programming.",
+        "warning": "* hosted on free platforms, so loading may take some time :)",
+        "buttons": {
+            "source": "Source",
+            "preview": "Preview"
+        }
+    },
+    "RU": {
+        "title": "Опыт",
+        "description": "С 2021 года я приобрел опыт программирования благодаря олимпиадам, проектам, фрилансу и задачам по программированию. Этот опыт улучшил мои навыки решения проблем и расширил мои технические знания. Я готов внести действенный вклад в будущее программирования.",
+        "warning": "* размещены на бесплатных платформах, поэтому загрузка может занять некоторое время :)",
+        "buttons": {
+            "source": "Исходник",
+            "preview": "Демка"
+        }
+    },
+    "LV": {
+        "title": "Pieredze",
+        "description": "Kopš 2021. gada esmu guvis programmēšanas pieredzi olimpiādēs, projektos, freelancē  un kodēšanas izaicinājumos. Šī pieredze uzlaboja manas problēmu risināšanas prasmes un paplašināja manas zināšanas par tehnoloģijām. Esmu gatavs sniegt efektīvu ieguldījumu programmēšanas nākotnē.",
+        "warning": "* izvietoti bezmaksas platformās, tāpēc ielāde var aizņemt kādu laiku :)",
+        "buttons": {
+            "source": "Kods",
+            "preview": "Vietne"
+        }
+    }
+}

@@ -1,15 +1,19 @@
 import { BrowserRouter } from 'react-router-dom'
-import { About, Experience, Navbar, Contact } from './components'
-import Skills from 'components/Skills/Skills'
+import { Navbar, Alert, About, Skills, Experience, Contact } from './components'
+import { Provider } from 'react-redux'
+import { store } from 'redux/store'
 
 const App = () => (
-    <BrowserRouter>
-        <Navbar />
-        <About />
-        <Skills />
-        <Experience />
-        <Contact />
-    </BrowserRouter>
+    <Provider store={store}>
+        <BrowserRouter>
+            <Alert />
+            <Navbar />
+            <About />
+            <Skills />
+            <Experience />
+            <Contact />
+        </BrowserRouter>
+    </Provider>
 )
 
 export default App

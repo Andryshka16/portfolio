@@ -1,0 +1,26 @@
+{
+    "EN": {
+        "title": "Development skills",
+        "skillLevels": {
+            "1": "Beginner",
+            "2": "Intermediate",
+            "3": "Experienced"
+        }
+    },
+    "RU": {
+        "title": "Навыки разработки",
+        "skillLevels": {
+            "1": "Начинающий",
+            "2": "Продвинутый",
+            "3": "Опытный"
+        }
+    },
+    "LV": {
+        "title": "Izstrādes prasmes",
+        "skillLevels": {
+            "1": "Iesācejs",
+            "2": "Augsts",
+            "3": "Pieredzējis"
+        }
+    }
+}

@@ -1,0 +1,29 @@
+{
+    "EN": {
+        "title": "Portfolio",
+        "navigators": {
+            "about": "About",
+            "skills": "Skills",
+            "experience": "Experience",
+            "contact": "Contact"
+        }
+    },
+    "RU": {
+        "title": "Портфолио",
+        "navigators": {
+            "about": "Обо мне",
+            "skills": "Навыки",
+            "experience": "Опыт",
+            "contact": "Связаться"
+        }
+    },
+    "LV": {
+        "title": "Portfolio",
+        "navigators": {
+            "about": "Par mani",
+            "skills": "Prasmes",
+            "experience": "Pieredze",
+            "contact": "Sazināties"
+        }
+    }
+}

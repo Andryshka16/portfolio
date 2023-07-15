@@ -1,22 +1,27 @@
 import { HashLink } from 'react-router-hash-link'
+import content from '../content.json'
+import { useAppSelector } from 'redux/store'
 
 const style = 'text-white font-semibold text-lg'
 
 const Navigators = () => {
+    const language = useAppSelector((store) => store.language)
+    const { about, skills, experience, contact } = content[language].navigators
+
     const scroll = (el: HTMLElement) => el.scrollIntoView({ behavior: 'smooth', block: 'center' })
     return (
         <div className='flex items-center gap-10'>
             <HashLink className={style} to='#about' scroll={scroll}>
-                About
+                {about}
             </HashLink>
             <HashLink className={style} to='#skills' scroll={scroll}>
-                Skills
+                {skills}
             </HashLink>
             <HashLink className={style} to='#experience' scroll={scroll}>
-                Experience
+                {experience}
             </HashLink>
             <HashLink className={style} to='#contact' scroll={scroll}>
-                Contact
+                {contact}
             </HashLink>
         </div>
     )

@@ -1,0 +1,29 @@
+{
+    "EN": {
+        "title": "Contact me",
+        "placeHolders": {
+            "email": "Your email",
+            "name": "Your name",
+            "message": "Your message"
+        },
+        "button": "Send"
+    },
+    "RU": {
+        "title": "Связаться со мной",
+        "placeHolders": {
+            "email": "Ваша почта",
+            "name": "Ваше имя",
+            "message": "Ваше сообщение"
+        },
+        "button": "Отправить"
+    },
+    "LV": {
+        "title": "Sazināties ar mani",
+        "placeHolders": {
+            "email": "Jūsu e-pasts",
+            "name": "Jūsu vārds",
+            "message": "Jūsu ziņa"
+        },
+        "button": "Nosūtīt"
+    }
+}
