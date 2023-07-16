@@ -6,12 +6,14 @@ import { store } from 'redux/store'
 const App = () => (
     <Provider store={store}>
         <BrowserRouter>
-            <Alert />
-            <Navbar />
-            <About />
-            <Skills />
-            <Experience />
-            <ContactMe />
+            <div className='min-h-screen bg-slate-100 pb-10 dark:bg-[#0f1829]'>
+                <Alert />
+                <Navbar />
+                <About />
+                <Skills />
+                <Experience />
+                <ContactMe />
+            </div>
         </BrowserRouter>
     </Provider>
 )

@@ -9,8 +9,10 @@ const Experience = () => {
 
     return (
         <div className='m-auto mt-36 w-fit text-center' id='experience'>
-            <h1 className='text-6xl font-bold text-[#05CEC2]'>{title}</h1>
-            <p className='m-auto mt-10 w-[800px] text-2xl font-medium text-white'>{description}</p>
+            <h1 className='text-6xl font-bold text-teal-400'>{title}</h1>
+            <p className='m-auto mt-10 w-[800px] text-2xl font-medium dark:text-white'>
+                {description}
+            </p>
             <div className='m-auto mt-10 flex w-fit gap-8'>
                 <Project project={lapchess} />
                 <Project project={shopify} />

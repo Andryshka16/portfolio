@@ -1,7 +1,8 @@
 import { showAlert } from 'components/Alert/redux/actions'
 import { send } from 'emailjs-com'
 import { useState } from 'react'
-import { useAppDispatch } from 'redux/store'
+import { useAppDispatch, useAppSelector } from 'redux/store'
+import content from '../content.json'
 
 const SERVICE = import.meta.env.VITE_EMAILJS_SERVICE
 const TEMPLATE = import.meta.env.VITE_EMAILJS_TEMPLATE
@@ -15,22 +16,19 @@ type FormFields = {
 
 const useSendMessage = () => {
     const dispatch = useAppDispatch()
+    const language = useAppSelector((store) => store.language)
     const [loading, setLoading] = useState(false)
+    const { messageSent, messageError } = content[language].alert
 
     const sendMessage = async (data: FormFields) => {
         try {
             setLoading(true)
-
             await send(SERVICE, TEMPLATE, data, USER_KEY)
-
-            const content = { name: 'Message sent!', text: 'Your message has been sent' }
-            dispatch(showAlert({ content, type: 'success' }))
-
             setLoading(false)
+            dispatch(showAlert({ content: messageSent, type: 'success' }))
         } catch (error) {
             setLoading(false)
-            const content = { name: 'Error!', text: 'Failed to send message' }
-            dispatch(showAlert({ content, type: 'error' }))
+            dispatch(showAlert({ content: messageError, type: 'error' }))
         }
     }
 

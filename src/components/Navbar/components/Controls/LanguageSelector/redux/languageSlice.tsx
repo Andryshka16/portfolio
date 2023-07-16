@@ -1,13 +1,19 @@
-import { PayloadAction, SliceCaseReducers, createSlice } from '@reduxjs/toolkit'
+import { PayloadAction, createSlice } from '@reduxjs/toolkit'
 
 type Language = 'EN' | 'LV' | 'RU'
 
-const languageSlice = createSlice<Language, SliceCaseReducers<Language>>({
+const initialState = (localStorage.getItem('language') || 'EN') as Language
+
+const languageSlice = createSlice({
     name: 'language',
-    initialState: 'EN',
+    initialState,
     reducers: {
-        setLanguage: (_, action: PayloadAction<'EN' | 'LV' | 'RU'>) => action.payload
+        setLanguage: (_, action: PayloadAction<Language>) => {
+            localStorage.setItem('language', action.payload)
+            return action.payload
+        }
     }
 })
 
+export const { setLanguage } = languageSlice.actions
 export default languageSlice

@@ -28,13 +28,13 @@ const ContactForm = () => {
             onSubmit={handleSubmit(submit)}
             className='flex w-[700px] flex-col rounded-3xl bg-[#2A2A67] px-24 pb-10 pt-9'
         >
-            <h1 className='mb-2 text-center text-5xl font-bold text-[#05CEC2]'>{title}</h1>
+            <h1 className='mb-2 text-center text-5xl font-bold text-teal-400'>{title}</h1>
 
             {inputs.map((name) => (
                 <input
                     {...register(name)}
                     placeholder={placeHolders[name]}
-                    className='my-6 block w-full border-b-2 border-b-[#05CEC2] bg-[#2A2A67] p-2 text-xl font-medium text-white focus:outline-none'
+                    className='my-6 block w-full border-b-2 border-b-[#05CEC2] bg-[#2A2A67] p-2 text-xl font-medium focus:outline-none dark:text-white'
                     key={name}
                 />
             ))}

@@ -6,6 +6,16 @@
             "name": "Your name",
             "message": "Your message"
         },
+        "alert": {
+            "messageSent": {
+                "name": "Message sent!",
+                "text": "Your message has been sent"
+            },
+            "messageError": {
+                "name": "Error!",
+                "text": "Failed to send message"
+            }
+        },
         "button": "Send"
     },
     "RU": {
@@ -15,6 +25,16 @@
             "name": "Ваше имя",
             "message": "Ваше сообщение"
         },
+        "alert": {
+            "messageSent": {
+                "name": "Отправлено!",
+                "text": "Ваше сообщение было отправлено"
+            },
+            "messageError": {
+                "name": "Ошибка!",
+                "text": "Не удалось отправить сообщение"
+            }
+        },
         "button": "Отправить"
     },
     "LV": {
@@ -23,6 +43,16 @@
             "email": "Jūsu e-pasts",
             "name": "Jūsu vārds",
             "message": "Jūsu ziņa"
+        },
+        "alert": {
+            "messageSent": {
+                "name": "Nosūtīts!",
+                "text": "Jūsu ziņa ir nosūtīta"
+            },
+            "messageError": {
+                "name": "Kļūda!",
+                "text": "Neizdevās nosūtīt ziņojumu"
+            }
         },
         "button": "Nosūtīt"
     }

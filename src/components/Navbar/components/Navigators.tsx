@@ -2,7 +2,7 @@ import { HashLink } from 'react-router-hash-link'
 import content from '../content.json'
 import { useAppSelector } from 'redux/store'
 
-const style = 'text-white font-semibold text-lg'
+const style = 'dark:dark:text-white font-semibold text-xl'
 
 const Navigators = () => {
     const language = useAppSelector((store) => store.language)
