@@ -3,22 +3,22 @@ import { AiOutlineInstagram, AiOutlineWhatsApp, AiOutlineLinkedin } from 'react-
 import { NavLink } from 'react-router-dom'
 
 const Socials = () => (
-    <div className='mt-10 flex items-center justify-center gap-4'>
+    <div className='mt-14 flex h-28 items-center justify-center gap-4'>
         <NavLink to='https://github.com/Andryshka16' target='blank'>
             <VscGithub
-                className='text-gray-400 transition duration-200 hover:scale-105'
+                className='text-gray-500 transition duration-200 hover:scale-105 dark:text-gray-400'
                 size={50}
             />
         </NavLink>
         <NavLink to='https://www.instagram.com/andryshka.16' target='blank'>
             <AiOutlineInstagram
-                className='text-gray-400 transition duration-200 hover:scale-105'
+                className='text-gray-500 transition duration-200 hover:scale-105 dark:text-gray-400'
                 size={62}
             />
         </NavLink>
         <NavLink to='https://wa.me/+37128176717' target='blank'>
             <AiOutlineWhatsApp
-                className='text-gray-400 transition duration-200 hover:scale-105'
+                className='text-gray-500 transition duration-200 hover:scale-105 dark:text-gray-400'
                 size={56}
             />
         </NavLink>
@@ -27,7 +27,7 @@ const Socials = () => (
             target='blank'
         >
             <AiOutlineLinkedin
-                className='text-gray-400 transition duration-200 hover:scale-105'
+                className='text-gray-500 transition duration-200 hover:scale-105 dark:text-gray-400'
                 size={60}
             />
         </NavLink>

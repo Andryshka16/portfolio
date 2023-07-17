@@ -13,29 +13,30 @@ const Alert = () => {
         return () => clearTimeout(hideTimeout)
     }, [showAlert])
 
-    const hideStyle = !showAlert ? 'translate-x-1 opacity-0' : ''
+    const hideStyle = !showAlert ? 'translate-x-10 opacity-0' : ''
     const bgColor =
         type === 'success'
             ? 'from-[#00ff0040] bg-gradient-to-r to-transparent'
             : 'from-[#ff000040] bg-gradient-to-r to-transparent'
 
-    const nameColor = type === 'success' ? 'text-green-500' : 'text-red-500'
+    const nameColor =
+        type === 'success' ? 'text-green-600 dark:text-green-500' : 'text-red-500 dark:text-red-500'
 
     return (
         <div
-            className={`fixed bottom-10 right-2 -translate-x-1/2 overflow-hidden rounded-xl bg-[#172642] transition duration-200 ${hideStyle}`}
+            className={`fixed bottom-10 right-20 overflow-hidden rounded-xl bg-gray-200 transition duration-200 dark:bg-[#172642] ${hideStyle}`}
         >
-            <div className={`absolute h-full w-1/2 ${bgColor}`}></div>
+            <div className={`absolute h-full w-1/2 ${bgColor}`} />
 
             <div className='flex items-center gap-7 px-10 py-3'>
                 {type === 'success' ? (
-                    <IoCheckmarkCircle className='text-green-500' size={30} />
+                    <IoCheckmarkCircle className='text-green-600 dark:text-green-500' size={30} />
                 ) : (
                     <AiFillCloseCircle className='text-red-500' size={30} />
                 )}
                 <div>
                     <p className={`font-semibold ${nameColor}`}>{content?.name}</p>
-                    <p className='text-slate-400'>{content?.text}</p>
+                    <p className='text-zinc-500 dark:text-slate-400'>{content?.text}</p>
                 </div>
             </div>
         </div>

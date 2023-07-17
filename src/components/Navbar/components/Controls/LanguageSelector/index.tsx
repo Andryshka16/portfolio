@@ -40,7 +40,7 @@ const LanguageSelector = () => {
                 className='flex cursor-pointer items-center gap-1'
                 onClick={() => setShowLanguages(!showLanguages)}
             >
-                <MdLanguage className='dark:text-white' size={30} />
+                <MdLanguage className='text-zinc-800 dark:text-white' size={30} />
                 <h2 className='w-5 text-base font-semibold dark:text-white'>{language}</h2>
                 <BiSolidDownArrow
                     className={`transition-transform duration-200 dark:text-white ${rotation}`}
@@ -48,10 +48,10 @@ const LanguageSelector = () => {
                 />
             </div>
             {showLanguages && (
-                <div className='absolute right-16 top-16 rounded-md bg-[#2A2A67] py-4'>
+                <div className='absolute right-16 top-16 rounded-md bg-zinc-200 py-4 dark:bg-[#2A2A67]'>
                     {options.map(({ code, flag, language }) => (
                         <div
-                            className='my-1 flex cursor-pointer items-center gap-3 px-10 transition duration-200 hover:bg-[#05CEC2] hover:bg-opacity-80'
+                            className='my-1 flex cursor-pointer items-center gap-3 px-10 transition duration-200 hover:bg-zinc-400 hover:bg-opacity-80 dark:hover:bg-[#05CEC2]'
                             onClick={() => {
                                 dispatch(setLanguage(code as Language))
                                 setShowLanguages(false)
@@ -63,7 +63,9 @@ const LanguageSelector = () => {
                                 style={{ width: '24px', height: '18px', borderRadius: '3px' }}
                                 svg
                             />
-                            <h2 className='text-lg font-semibold dark:text-white'>{language}</h2>
+                            <h2 className='text-lg font-semibold text-zinc-800 dark:text-white'>
+                                {language}
+                            </h2>
                         </div>
                     ))}
                 </div>

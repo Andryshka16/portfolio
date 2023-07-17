@@ -7,7 +7,7 @@ const Navbar = () => {
     const { title } = content[language]
     return (
         <nav className='flex w-full items-center justify-between px-16 py-4'>
-            <h1 className='text-4xl font-semibold dark:text-white'>{title}</h1>
+            <h1 className='text-4xl font-bold text-zinc-800 dark:text-white'>{title}</h1>
             <Navigators />
             <div className='flex items-center gap-4'>
                 <ThemeSelector />

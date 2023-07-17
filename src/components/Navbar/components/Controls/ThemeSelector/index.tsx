@@ -15,7 +15,7 @@ const ThemeSelector = () => {
 
     return (
         <div
-            className='relative flex w-16 cursor-pointer items-center justify-between rounded-full bg-[#2A2A67] px-2.5 py-1.5'
+            className='relative flex w-16 cursor-pointer items-center justify-between rounded-full bg-zinc-500 px-2.5 py-1.5 dark:bg-[#2A2A67]'
             onClick={() => setDarkMode(!darkMode)}
         >
             <div
