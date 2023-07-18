@@ -1,7 +1,7 @@
 import { MouseEventHandler } from 'react'
 import { useAppSelector } from 'redux/store'
 import { HashLink } from 'react-router-hash-link'
-import content from '../content.json'
+import { content } from '../shared'
 
 interface NavigatorsProps {
     style: string
