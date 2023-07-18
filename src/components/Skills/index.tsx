@@ -7,11 +7,11 @@ const Skills = () => {
     const language = useAppSelector((store) => store.language)
     const { title } = content[language]
     return (
-        <div id='skills' className='my-36'>
-            <h1 className='text-center text-6xl font-bold text-zinc-700 dark:text-teal-400'>
+        <div id='skills' className='my-20 sm:my-36'>
+            <h1 className='text-center text-5xl font-bold text-zinc-700 dark:text-teal-400 sm:text-6xl'>
                 {title}
             </h1>
-            <div className='flex-wrap m-auto mt-20 flex w-fit gap-x-24 gap-y-12'>
+            <div className='m-auto mt-14 flex w-fit flex-wrap gap-x-24 gap-y-12 sm:mt-20'>
                 <SkillList title='Frontend' skills={frontend} />
                 <SkillList title='Backend' skills={backend} />
             </div>

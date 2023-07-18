@@ -3,7 +3,7 @@ import { AiOutlineInstagram, AiOutlineWhatsApp, AiOutlineLinkedin } from 'react-
 import { NavLink } from 'react-router-dom'
 
 const Socials = () => (
-    <div className='mt-14 flex h-28 items-center justify-center gap-4'>
+    <div className='mt-10 flex h-28 items-center justify-center gap-4 sm:mt-14'>
         <NavLink to='https://github.com/Andryshka16' target='blank'>
             <VscGithub
                 className='text-gray-500 transition duration-200 hover:scale-105 dark:text-gray-400'

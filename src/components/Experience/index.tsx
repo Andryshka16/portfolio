@@ -8,12 +8,14 @@ const Experience = () => {
     const { title, description, warning } = content[language]
 
     return (
-        <div className='m-auto mt-36 w-fit text-center' id='experience'>
-            <h1 className='text-6xl font-bold text-zinc-700 dark:text-teal-400'>{title}</h1>
-            <p className='m-auto mt-10 max-w-[800px] text-2xl font-medium  dark:text-white'>
+        <div className='m-auto mt-20 w-fit text-center sm:mt-36' id='experience'>
+            <h1 className='text-5xl font-bold text-zinc-700 dark:text-teal-400 sm:text-6xl'>
+                {title}
+            </h1>
+            <p className='m-auto mt-10 max-w-[800px] text-xl sm:text-2xl font-medium  dark:text-white'>
                 {description}
             </p>
-            <div className='flex flex-wrap justify-center gap-y-5 gap-x-10 m-auto mt-10 w-fit'>
+            <div className='m-auto mt-10 flex w-fit flex-wrap justify-center gap-x-10 gap-y-5'>
                 <Project project={lapchess} />
                 <Project project={shopify} />
                 <Project project={wordScope} />

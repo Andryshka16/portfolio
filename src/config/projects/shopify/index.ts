@@ -4,7 +4,7 @@ import description from './description.json'
 const shopify = {
     image: {
         source: shopifyImg,
-        style: 'my-1 mx-auto h-28'
+        style: 'sm:my-1 mx-auto h-28'
     },
     description: description,
     source: 'https://github.com/Andryshka16/shopify',

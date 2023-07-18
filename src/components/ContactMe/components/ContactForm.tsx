@@ -55,7 +55,7 @@ const ContactForm = () => {
             </h1>
 
             {inputs.map(({ name, options }) => (
-                <div className='relative'>
+                <div className='relative' key={name}>
                     <input
                         {...register(name, options)}
                         placeholder={placeHolders[name]}
@@ -64,7 +64,6 @@ const ContactForm = () => {
                                 ? 'border-b-red-400 dark:border-b-red-500'
                                 : ' border-b-zinc-400 dark:border-b-[#05CEC2]'
                         }`}
-                        key={name}
                     />
                 </div>
             ))}

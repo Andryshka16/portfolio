@@ -48,7 +48,7 @@ const LanguageSelector = () => {
                 />
             </div>
             {showLanguages && (
-                <div className='absolute right-16 top-16 rounded-md bg-zinc-200 py-4 dark:bg-[#2A2A67]'>
+                <div className='absolute top-20 right-10 md:right-16 md:top-16 rounded-md bg-zinc-200 py-4 dark:bg-[#2A2A67]'>
                     {options.map(({ code, flag, language }) => (
                         <div
                             className='my-1 flex cursor-pointer items-center gap-3 px-10 transition duration-200 hover:bg-zinc-400 hover:bg-opacity-80 dark:hover:bg-[#05CEC2]'
