@@ -18,7 +18,7 @@ const MobileNavbar = () => {
     })
 
     return (
-        <nav className='flex w-full items-center justify-between px-11 py-8 md:hidden'>
+        <nav className='flex w-full items-center justify-between px-5 py-8 md:hidden'>
             <h1 className='-mt-1.5 text-4xl font-bold text-zinc-800 dark:text-white'>{title}</h1>
             <HiMenu size={35} className='dark:text-white' onClick={() => setVisible(!visible)} />
             <Portal>
@@ -27,7 +27,7 @@ const MobileNavbar = () => {
                         !visible && '-translate-y-full'
                     }`}
                 >
-                    <div className='h-fuall flex w-full flex-col items-center'>
+                    <div className='flex h-full w-full flex-col items-center'>
                         <div className='mx-8 my-10 flex w-full items-center justify-between'>
                             <ThemeSelector />
                             <LanguageSelector />
