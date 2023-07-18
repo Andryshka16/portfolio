@@ -48,9 +48,9 @@ const ContactForm = () => {
     return (
         <form
             onSubmit={handleSubmit(submit)}
-            className='flex w-[700px] flex-col rounded-3xl bg-zinc-200 px-24 pb-10 pt-9 dark:bg-[#2A2A67]'
+            className='mx-auto flex w-full flex-col rounded-3xl bg-zinc-200 px-14 pb-10 pt-9 dark:bg-[#2A2A67] sm:max-w-[700px] sm:px-24'
         >
-            <h1 className='mb-2 text-center text-5xl font-bold text-zinc-700 dark:text-teal-400'>
+            <h1 className='mb-2 text-center text-4xl font-bold text-zinc-700 dark:text-teal-400 sm:text-5xl '>
                 {title}
             </h1>
 
@@ -59,7 +59,7 @@ const ContactForm = () => {
                     <input
                         {...register(name, options)}
                         placeholder={placeHolders[name]}
-                        className={`my-6 block w-full border-b-2 bg-transparent p-2 text-xl font-medium text-zinc-800 transition duration-200 focus:outline-none dark:text-white ${
+                        className={`my-6 block w-full border-b-2 bg-transparent p-2 text-lg font-medium text-zinc-800 transition duration-200 focus:outline-none dark:text-white sm:text-xl ${
                             errors[name]
                                 ? 'border-b-red-400 dark:border-b-red-500'
                                 : ' border-b-zinc-400 dark:border-b-[#05CEC2]'

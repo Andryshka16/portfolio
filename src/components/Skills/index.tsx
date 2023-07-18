@@ -8,8 +8,10 @@ const Skills = () => {
     const { title } = content[language]
     return (
         <div id='skills' className='my-36'>
-            <h1 className='text-center text-6xl font-bold text-zinc-700 dark:text-teal-400'>{title}</h1>
-            <div className='m-auto mt-20 grid w-fit grid-cols-2 gap-24'>
+            <h1 className='text-center text-6xl font-bold text-zinc-700 dark:text-teal-400'>
+                {title}
+            </h1>
+            <div className='flex-wrap m-auto mt-20 flex w-fit gap-x-24 gap-y-12'>
                 <SkillList title='Frontend' skills={frontend} />
                 <SkillList title='Backend' skills={backend} />
             </div>
