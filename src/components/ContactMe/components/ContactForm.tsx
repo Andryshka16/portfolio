@@ -71,7 +71,9 @@ const ContactForm = () => {
             <button
                 type='submit'
                 className={`mt-6 w-full rounded-md bg-red-400 py-1 text-xl font-bold text-zinc-100 transition duration-200 dark:bg-[#05CEC2] dark:text-[#2A2A67] ${
-                    loading ? 'pointer-events-none bg-opacity-70' : 'hover:bg-opacity-70'
+                    loading
+                        ? 'pointer-events-none bg-opacity-70 dark:bg-opacity-70'
+                        : 'hover:bg-opacity-70 dark:hover:bg-opacity-70'
                 }`}
             >
                 {button}

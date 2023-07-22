@@ -3,6 +3,7 @@ import { IoCheckmarkCircle } from 'react-icons/io5'
 import { AiFillCloseCircle } from 'react-icons/ai'
 import { useAppDispatch, useAppSelector } from 'redux/store'
 import { hideAlert } from './redux/actions'
+import { Portal } from 'components'
 
 const Alert = () => {
     const dispatch = useAppDispatch()
@@ -23,23 +24,28 @@ const Alert = () => {
         type === 'success' ? 'text-green-600 dark:text-green-500' : 'text-red-500 dark:text-red-500'
 
     return (
-        <div
-            className={`fixed bottom-10 right-20 overflow-hidden rounded-xl bg-gray-200 transition duration-200 dark:bg-[#172642] ${hideStyle}`}
-        >
-            <div className={`absolute h-full w-1/2 ${bgColor}`} />
+        <Portal>
+            <div
+                className={`fixed bottom-10 right-20 overflow-hidden rounded-xl bg-gray-200 transition duration-200 dark:bg-[#172642] ${hideStyle}`}
+            >
+                <div className={`absolute h-full w-1/2 ${bgColor}`} />
 
-            <div className='flex items-center gap-7 px-10 py-3'>
-                {type === 'success' ? (
-                    <IoCheckmarkCircle className='text-green-600 dark:text-green-500' size={30} />
-                ) : (
-                    <AiFillCloseCircle className='text-red-500' size={30} />
-                )}
-                <div>
-                    <p className={`font-semibold ${nameColor}`}>{content?.name}</p>
-                    <p className='text-zinc-500 dark:text-slate-400'>{content?.text}</p>
+                <div className='flex items-center gap-7 px-10 py-3'>
+                    {type === 'success' ? (
+                        <IoCheckmarkCircle
+                            className='text-green-600 dark:text-green-500'
+                            size={30}
+                        />
+                    ) : (
+                        <AiFillCloseCircle className='text-red-500' size={30} />
+                    )}
+                    <div>
+                        <p className={`font-semibold ${nameColor}`}>{content?.name}</p>
+                        <p className='text-zinc-500 dark:text-slate-400'>{content?.text}</p>
+                    </div>
                 </div>
             </div>
-        </div>
+        </Portal>
     )
 }
 export default Alert

@@ -1,13 +1,13 @@
+import { useAppSelector } from 'redux/store'
 import SkillList from './components/SkillList'
 import { frontend, backend } from 'config/skills'
 import content from './content.json'
-import { useAppSelector } from 'redux/store'
 
 const Skills = () => {
     const language = useAppSelector((store) => store.language)
     const { title } = content[language]
     return (
-        <div id='skills' className='my-20 sm:my-36'>
+        <div id='skills' className='my-20 sm:my-36' data-aos='fade-up' data-aos-duration='500'>
             <h1 className='text-center text-5xl font-bold text-zinc-700 dark:text-teal-400 sm:text-6xl'>
                 {title}
             </h1>

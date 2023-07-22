@@ -1,13 +1,18 @@
+import { useAppSelector } from 'redux/store'
 import panda from 'assets/panda.png'
 import content from './content.json'
-import { useAppSelector } from 'redux/store'
 
 const About = () => {
     const language = useAppSelector((store) => store.language)
     const { greeting, speciality, description } = content[language]
 
     return (
-        <div className='m-auto mt-10 w-fit text-center sm:mt-36' id='about'>
+        <div
+            className='m-auto mt-10 w-fit text-center sm:mt-36'
+            id='about'
+            data-aos='fade-up'
+            data-aos-duration='500'
+        >
             <h1 className='text-5xl font-bold text-zinc-700 dark:text-teal-400 sm:text-6xl'>
                 {greeting}
             </h1>
