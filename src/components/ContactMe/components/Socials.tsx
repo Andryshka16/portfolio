@@ -22,10 +22,7 @@ const Socials = () => (
                 size={56}
             />
         </NavLink>
-        <NavLink
-            to='https://www.linkedin.com/in/%D0%B0%D0%BD%D0%B4%D1%80%D0%B5%D0%B9-%D0%BB%D0%B0%D0%BF%D1%87%D0%B8%D0%BA-03b72326b'
-            target='blank'
-        >
+        <NavLink to='https://www.linkedin.com/in/andrey-lapchik-03b72326b' target='blank'>
             <AiOutlineLinkedin
                 className='text-gray-500 transition duration-200 hover:scale-105 dark:text-gray-400'
                 size={60}
