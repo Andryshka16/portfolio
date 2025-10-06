@@ -21,6 +21,8 @@ const CONTACT_OPTINS = [
         value: 'Riga, Latvia'
     }
 ]
+
+const CALENDLY_URL = 'https://calendly.com/andryshka/30min'
 ---
 
 <section id='contact' class='bg-gray-900 py-20' data-nosnippet>
@@ -49,7 +51,12 @@ const CONTACT_OPTINS = [
                     </h3>
                 </div>
 
-                <form id='contact-form' class='space-y-4' action='/api/contact' method='POST'>
+                <form
+                    id='contact-form'
+                    class='space-y-[13.2px]'
+                    action='/api/contact'
+                    method='POST'
+                >
                     <div class='grid gap-4 sm:grid-cols-2'>
                         <div>
                             <label for='name' class='mb-2 block text-sm font-medium text-gray-300'
@@ -100,36 +107,43 @@ const CONTACT_OPTINS = [
                         <textarea
                             id='message'
                             name='message'
-                            rows='4'
+                            rows='6'
                             required
                             class='w-full resize-none rounded-lg border border-gray-600 bg-gray-700 px-4 py-3 text-white placeholder-gray-400 transition-colors focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 focus:outline-none'
                             placeholder='Tell me about your project...'></textarea>
                     </div>
 
-                    <button
-                        type='submit'
-                        id='submit-btn'
-                        class='relative w-full overflow-hidden rounded-lg bg-gradient-to-r from-cyan-500 to-blue-500 px-6 py-3 font-semibold text-white transition-all duration-300 hover:shadow-lg focus:ring-2 focus:ring-cyan-500/20 focus:outline-none disabled:pointer-events-none'
-                    >
-                        <div
-                            class='absolute inset-0 bg-gradient-to-r from-cyan-600 to-blue-600 opacity-0 transition-opacity duration-300 hover:opacity-100'
+                    <div>
+                        <button
+                            type='submit'
+                            id='submit-btn'
+                            class='relative mt-3 w-full overflow-hidden rounded-lg bg-gradient-to-r from-cyan-500 to-blue-500 px-6 py-3 font-semibold text-white transition-all duration-300 hover:shadow-lg focus:ring-2 focus:ring-cyan-500/20 focus:outline-none disabled:pointer-events-none'
                         >
+                            <div
+                                class='absolute inset-0 bg-gradient-to-r from-cyan-600 to-blue-600 opacity-0 transition-opacity duration-300 hover:opacity-100'
+                            >
+                            </div>
+                            <!-- Success overlay -->
+                            <div
+                                id='success-overlay'
+                                class='pointer-events-none absolute inset-0 bg-gradient-to-r from-green-500 to-green-600 opacity-0 duration-300'
+                            >
+                            </div>
+                            <div
+                                id='error-overlay'
+                                class='pointer-events-none absolute inset-0 bg-gradient-to-r from-red-500 to-red-600 opacity-0 duration-300'
+                            >
+                            </div>
+                            <span class='pointer-events-none relative z-10' id='btn-text'>
+                                Send Message</span
+                            >
+                        </button>
+
+                        <!-- Tooltip -->
+                        <div class='mt-2 text-center text-xs text-gray-400'>
+                            Message sent via Telegram
                         </div>
-                        <!-- Success overlay -->
-                        <div
-                            id='success-overlay'
-                            class='pointer-events-none absolute inset-0 bg-gradient-to-r from-green-500 to-green-600 opacity-0 duration-300'
-                        >
-                        </div>
-                        <div
-                            id='error-overlay'
-                            class='pointer-events-none absolute inset-0 bg-gradient-to-r from-red-500 to-red-600 opacity-0 duration-300'
-                        >
-                        </div>
-                        <span class='pointer-events-none relative z-10' id='btn-text'
-                            >Send Message</span
-                        >
-                    </button>
+                    </div>
                 </form>
             </div>
 
@@ -175,6 +189,21 @@ const CONTACT_OPTINS = [
                         I'm always open to new connections, innovative ideas, startup
                         collaborations, and creative partnerships. Let's build something amazing
                         together!
+                    </p>
+                </div>
+
+                <!-- Calendly Booking -->
+                <div class='mt-7'>
+                    <a
+                        href={CALENDLY_URL}
+                        target='_blank'
+                        rel='noopener noreferrer'
+                        class='block w-full rounded-lg bg-gradient-to-r from-blue-500 to-blue-600 px-4 py-3 text-center font-semibold text-white transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 focus:ring-2 focus:ring-blue-500/20 focus:outline-none'
+                    >
+                        Book a Meeting
+                    </a>
+                    <p class='mt-2 text-center text-xs text-gray-400'>
+                        Schedule a 30-minute consultation
                     </p>
                 </div>
             </div>
