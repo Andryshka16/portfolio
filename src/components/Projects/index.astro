@@ -1,7 +1,18 @@
 ---
-import { Rocket, Globe, Layers } from '@lucide/astro'
+import { Rocket, Globe } from '@lucide/astro'
 
 const PROJECTS = [
+    {
+        title: 'Proxy Live Solutions™',
+        subtitle: 'iGaming Technology Company',
+        period: '2025–Present',
+        role: 'Frontend Developer',
+        impact: 'Building interactive user interfaces and real-time web applications with modern frontend technologies.',
+        tag: 'Commercial',
+        tech: ['React', 'TypeScript', 'iGaming', 'Real-time UI'],
+        highlights: ['Interactive user interfaces', 'Real-time web applications'],
+        icon: Globe
+    },
     {
         title: 'Cryptonit',
         subtitle: 'High‑Performance Crypto Trading Platform (Solana)',
@@ -9,7 +20,7 @@ const PROJECTS = [
         role: 'Fullstack • ex‑Lead Frontend',
         impact: 'Low‑latency Solana trading: real‑time UI, Protobuf WS, Redis caching.',
         tag: 'Commercial',
-        tech: ['React', 'TypeScript', 'NestJS', 'Nats.io', 'PostgreSQL', 'Redis'],
+        tech: ['React', 'TypeScript', 'NestJS', 'PostgreSQL', 'Redis'],
         highlights: [
             'Advanced TradingView charts with custom overlays',
             'Lossless Protobuf WebSocket streaming'
@@ -29,20 +40,6 @@ const PROJECTS = [
             'Real-time trading tools and token data streaming'
         ],
         icon: Globe
-    },
-    {
-        title: 'Lapchess',
-        subtitle: 'Online Chess Platform',
-        period: '2023–2024',
-        role: 'Full-stack • sole developer',
-        impact: 'Realtime multiplayer chess with Socket.IO, secure auth, and configurable time controls.',
-        tag: 'Pet project',
-        tech: ['React', 'Redux Toolkit', 'Express.js', 'Socket.IO', 'JWT', 'Docker'],
-        highlights: [
-            'Configurable time controls and public/private rooms',
-            'Server-validated moves with reconnection sync'
-        ],
-        icon: Layers
     }
 ]
 ---
