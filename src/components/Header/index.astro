@@ -1,9 +1,9 @@
 ---
 // Sticky navigation header component
-import { Menu, Home, Briefcase, GraduationCap, Code, MessageCircle, FileText } from '@lucide/astro'
+import { Menu, House, Briefcase, GraduationCap, Code, MessageCircle, FileText } from '@lucide/astro'
 
 const NAV_LINKS = [
-    { name: 'Home', href: '#home', icon: Home },
+    { name: 'Home', href: '#home', icon: House },
     { name: 'Experience', href: '#experience', icon: Briefcase },
     { name: 'Education', href: '#education', icon: GraduationCap },
     { name: 'Skills', href: '#tech-stack', icon: Code },
@@ -185,6 +185,8 @@ const NAV_LINKS = [
 
                     if (linkHref === `#${sectionId}`) {
                         // Direct match
+                        shouldHighlight = true
+                    } else if (sectionId === 'projects' && linkHref === '#experience') {
                         shouldHighlight = true
                     } else if (sectionId === 'testimonials' && linkHref === '#contact') {
                         // Testimonials section highlights Contact nav item

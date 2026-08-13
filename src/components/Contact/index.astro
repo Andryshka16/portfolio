@@ -2,7 +2,7 @@
 // Contact component with contact form
 import { Mail, Phone, MapPin, Send } from '@lucide/astro'
 
-const CONTACT_OPTINS = [
+const CONTACTS = [
     {
         name: 'Email',
         icon: Mail,
@@ -13,7 +13,7 @@ const CONTACT_OPTINS = [
         name: 'Phone',
         icon: Phone,
         value: '+371 28176717',
-        href: 'tel:+371 28176717'
+        href: 'tel:+37128176717'
     },
     {
         name: 'Location',
@@ -164,17 +164,21 @@ const CALENDLY_URL = 'https://calendly.com/andryshka/30min'
 
                 <div class='space-y-4'>
                     {
-                        CONTACT_OPTINS.map((option) => (
+                        CONTACTS.map((contact) => (
                             <div class='flex items-center gap-3 rounded-lg border border-gray-600 bg-gray-700/50 px-4 py-3'>
-                                <option.icon class='h-5 w-5 text-cyan-400' />
+                                <contact.icon class='h-5 w-5 text-cyan-400' />
                                 <div>
-                                    <p class='font-medium text-white'>{option.name}</p>
-                                    <a
-                                        href={option.href}
-                                        class='text-gray-300 transition-colors hover:text-cyan-400'
-                                    >
-                                        {option.value}
-                                    </a>
+                                    <p class='font-medium text-white'>{contact.name}</p>
+                                    {contact.href ? (
+                                        <a
+                                            href={contact.href}
+                                            class='text-gray-300 transition-colors hover:text-cyan-400'
+                                        >
+                                            {contact.value}
+                                        </a>
+                                    ) : (
+                                        <p class='text-gray-300'>{contact.value}</p>
+                                    )}
                                 </div>
                             </div>
                         ))

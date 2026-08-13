@@ -2,7 +2,7 @@ const sendTelegramMessage = async (message: string) => {
     const BOT_TOKEN = import.meta.env.BOT_TOKEN
     const CHAT_ID = import.meta.env.CHAT_ID
 
-    if (process.env.NODE_ENV !== 'production') {
+    if (!import.meta.env.PROD) {
         return await new Promise((resolve) => setTimeout(resolve, 500))
     }
 
@@ -16,7 +16,7 @@ const sendTelegramMessage = async (message: string) => {
         body: JSON.stringify({
             chat_id: CHAT_ID,
             text: message,
-            parse_mode: 'Markdown',
+            parse_mode: 'MarkdownV2',
             disable_web_page_preview: true
         })
     })

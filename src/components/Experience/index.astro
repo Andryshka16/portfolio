@@ -1,6 +1,7 @@
 ---
 // Experience component with visual timeline roadmap design
 import { Briefcase, Building2, Users, Code } from '@lucide/astro'
+import { getDuration } from '@/helpers'
 
 enum ThemeEnum {
     GREEN = 'green',
@@ -15,9 +16,8 @@ const EXPERIENCE = [
         description:
             'Developing interactive user interfaces and real-time web applications with modern frontend technologies.',
         icon: Briefcase,
-        year: 'Dec 2025 - Present',
+        period: 'Dec 2025 - Present',
         company: 'Proxy Live Solutions™',
-        duration: '3 mos',
         skills: ['React/TypeScript', 'iGaming', 'Real-time UI', 'Interactive Components'],
         theme: ThemeEnum.GREEN
     },
@@ -27,9 +27,8 @@ const EXPERIENCE = [
         description:
             'Built high-performance crypto trading platform with real-time data processing and scalable architecture.',
         icon: Users,
-        year: 'Mar 2025 - Dec 2025',
+        period: 'Mar 2025 - Dec 2025',
         company: 'Cryptonit',
-        duration: '10 mos',
         skills: ['React/TypeScript', 'Node.js/NestJS', 'Redis/WebSockets', 'PostgreSQL'],
         theme: ThemeEnum.BLUE
     },
@@ -39,9 +38,8 @@ const EXPERIENCE = [
         description:
             'Developed trading interfaces with advanced charting and real-time data visualization.',
         icon: Code,
-        year: 'Aug 2024 - Mar 2025',
+        period: 'Aug 2024 - Mar 2025',
         company: 'Cryptonit',
-        duration: '8 mos',
         skills: [
             'React/TypeScript',
             'TradingView Charts',
@@ -56,9 +54,8 @@ const EXPERIENCE = [
         description:
             'Delivered custom web applications and frontend solutions for diverse clients through Freelancer.com.',
         icon: Building2,
-        year: 'Jul 2023 - Aug 2024',
+        period: 'Jul 2023 - Aug 2024',
         company: 'Freelancer.com',
-        duration: '1 yr 2 mos',
         skills: ['Frontend Development', 'React', 'E-commerce', 'Landing Pages'],
         theme: ThemeEnum.GRAY
     }
@@ -111,7 +108,7 @@ const THEMES = {
 }
 ---
 
-<section id='experience' class='bg-gray-900 py-20' data-nosnippet>
+<section id='experience' class='bg-gray-900 py-20'>
     <div class='max-w-8xl mx-auto px-4 sm:px-6 lg:px-8'>
         <h2 class='mb-16 text-center text-3xl font-bold text-white'>Professional Journey</h2>
 
@@ -153,11 +150,11 @@ const THEMES = {
                                         <span
                                             class={`flex-shrink-0 rounded-full ${theme.badge} px-3 py-1 text-xs font-medium`}
                                         >
-                                            {item.duration}
+                                            {getDuration(item.period)}
                                         </span>
                                     </div>
                                     <p class='mb-2 text-sm text-gray-400'>
-                                        {item.company} • {item.year}
+                                        {item.company} • {item.period}
                                     </p>
                                     <p class='mb-3 text-sm text-gray-300'>{item.description}</p>
                                     <div class='flex flex-wrap gap-1.5'>

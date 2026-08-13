@@ -1,58 +1,35 @@
 import type { Message } from '@/types'
 
-const escapeMarkdownV2 = (text: string): string => {
-    return text.replace(/[_*\[\]()~`>#+\-=|{}.!]/g, '\\$&')
-}
+const escapeMarkdownV2 = (text: string) => text.replace(/[_*[\]()~`>#+\-=|{}.!\\]/g, '\\$&')
 
-const escapeEmail = (email: string): string => {
-    // Only escape the most problematic markdown characters, preserve dots and common email characters
-    return email.replace(/[_*\[\]()~`>#+\-=|{}.!]/g, (match) => {
-        // Don't escape dots, hyphens, or underscores in email addresses
-        return match === '.' || match === '-' || match === '_' ? match : '\\' + match
-    })
-}
+const escapeCode = (text: string) => text.replace(/[`\\]/g, '\\$&')
 
-const formatMessageContent = (message: string): string => {
-    // Only escape the most problematic markdown characters, preserve dots and other common characters
-    return message
-        .split('\n')
-        .map((line) =>
-            line.replace(/[_*\[\]()~`>#+\-=|{}.!]/g, (match) => {
-                // Don't escape dots, exclamation marks, or other common punctuation
-                return match === '.' ||
-                    match === '!' ||
-                    match === '?' ||
-                    match === ',' ||
-                    match === ':' ||
-                    match === ';'
-                    ? match
-                    : '\\' + match
-            })
-        )
-        .join('\n')
-}
-
-const formatTelegramMessage = (message: Message): string => {
-    const escapedName = escapeMarkdownV2(message.name)
-    const escapedSubject = escapeMarkdownV2(message.subject)
-    const formattedMessage = formatMessageContent(message.message)
-    const escapedEmail = escapeEmail(message.email)
-
+const formatTelegramMessage = (message: Message) => {
     const { ip, location } = message
+
+    const name = escapeMarkdownV2(message.name)
+    const email = escapeMarkdownV2(message.email)
+    const subject = escapeMarkdownV2(message.subject)
+    const content = escapeMarkdownV2(message.message)
 
     let info = ''
 
-    if (location) info += `\n\n🌍 *Location:* ${location}`
-    if (ip) info += location ? `\n🌐 *IP:* \`${ip}\`` : `\n\n🌐 *IP:* \`${ip}\``
+    if (location) info += `\n\n🌍 *Location:* ${escapeMarkdownV2(location)}`
+
+    if (ip) {
+        const code = `🌐 *IP:* \`${escapeCode(ip)}\``
+
+        info += location ? `\n${code}` : `\n\n${code}`
+    }
 
     return `✨ *New Message*
 
-👤 *${escapedName}*
-📧 ${escapedEmail}
-📝 ${escapedSubject} ${info}
+👤 *${name}*
+📧 ${email}
+📝 ${subject} ${info}
 
 💬 *Message:*
-${formattedMessage}
+${content}
 `
 }
 

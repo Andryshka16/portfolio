@@ -1,6 +1,7 @@
 ---
 // Education component with academic background and courses
 import { GraduationCap, School, BookOpen, Code } from '@lucide/astro'
+import { getYears } from '@/helpers'
 
 enum ThemeEnum {
     CYAN = 'cyan',
@@ -13,18 +14,18 @@ const EDUCATION = [
     {
         name: 'University of Latvia',
         degree: 'Computer Science',
-        year: '2024-present',
+        period: '2024 - 2025',
         description:
-            'Currently in the 2nd year, 3rd semester, with a focus on computer science fundamentals and practical applications in software engineering.',
+            'Studied computer science fundamentals — algorithms, data structures and software engineering — and applied them directly in production work.',
         icon: GraduationCap,
-        status: 'Current',
+        status: 'Completed',
         theme: ThemeEnum.CYAN
     },
 
     {
         name: 'Riga State Classical Gymnasium',
         degree: 'Electronics & Telecommunication Faculty',
-        year: '2021-2024',
+        period: '2021 - 2024',
         description:
             'Gained technical foundation in electronics and communication systems, which built a strong analytical base for my programming journey.',
         icon: School,
@@ -37,7 +38,7 @@ const COURSES = [
     {
         name: 'Datorium Coding Courses',
         degree: 'Python & JavaScript',
-        year: '2022',
+        period: '2022',
         description:
             'Hands-on training in Python and JavaScript, with a focus on algorithms, problem-solving, and building several small projects.',
         icon: BookOpen,
@@ -48,7 +49,7 @@ const COURSES = [
     {
         name: 'Fireship Courses',
         degree: 'Next.js',
-        year: '2023',
+        period: '2023',
         description:
             'Learned advanced concepts of Next.js and server-side rendering, applied later in production projects.',
         icon: Code,
@@ -87,7 +88,7 @@ const THEMES = {
 }
 ---
 
-<section id='education' class='bg-gray-900 py-20' data-nosnippet>
+<section id='education' class='bg-gray-900 py-20'>
     <div class='max-w-8xl mx-auto px-4 sm:px-6 lg:px-8'>
         <h2 class='relative mb-16 text-center text-3xl font-bold text-white'>
             <span class='relative z-10'>Education & Learning</span>
@@ -123,7 +124,7 @@ const THEMES = {
                                     </span>
                                 </div>
                                 <p class='mb-2 text-sm text-gray-400'>
-                                    {item.degree} • {item.year}
+                                    {item.degree} • {getYears(item.period)}
                                 </p>
                                 <p class='text-sm text-gray-300'>{item.description}</p>
                             </div>
@@ -150,7 +151,7 @@ const THEMES = {
                                     <h4 class='text-lg font-bold text-white'>{item.name}</h4>
                                 </div>
                                 <p class='mb-2 text-sm text-gray-400'>
-                                    {item.degree} • {item.year}
+                                    {item.degree} • {getYears(item.period)}
                                 </p>
                                 <p class='text-sm text-gray-300'>{item.description}</p>
                             </div>

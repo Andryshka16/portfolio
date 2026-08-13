@@ -1,6 +1,6 @@
 ---
 // Hero component with enhanced design
-import { Mail, Phone, MapPin, CheckCircle } from '@lucide/astro'
+import { Mail, Phone, MapPin, CircleCheck } from '@lucide/astro'
 
 enum ThemeEnum {
     CYAN = 'cyan',
@@ -9,7 +9,7 @@ enum ThemeEnum {
     GREEN = 'green'
 }
 
-const CONTACT_INFO = [
+const CONTACTS = [
     {
         name: 'Email',
         icon: Mail,
@@ -20,7 +20,7 @@ const CONTACT_INFO = [
         name: 'Phone',
         icon: Phone,
         value: '+371 28176717',
-        href: 'tel:+371 28176717'
+        href: 'tel:+37128176717'
     },
     {
         name: 'Location',
@@ -114,8 +114,8 @@ const THEMES = {
                         systems. Passionate about clean code and optimal performance.
                     </p>
 
-                    <div class='flex items-center gap-2 text-emerald-400' data-nosnippet>
-                        <CheckCircle class='h-5 w-5' />
+                    <div class='flex items-center gap-2 text-emerald-400'>
+                        <CircleCheck class='h-5 w-5' />
                         <span class='text-sm font-medium'
                             >Available for full-time positions and contract work</span
                         >
@@ -123,7 +123,7 @@ const THEMES = {
                 </div>
 
                 <!-- Core Skills -->
-                <div class='flex flex-wrap gap-3' data-nosnippet>
+                <div class='flex flex-wrap gap-3'>
                     {
                         TECHNOLOGIES.map((technology) => {
                             const { border, background, text } = THEMES[technology.theme]
@@ -142,19 +142,26 @@ const THEMES = {
                 <!-- Contact Info -->
                 <div class='space-y-3 text-gray-300' data-nosnippet>
                     {
-                        CONTACT_INFO.map((info) => (
+                        CONTACTS.map((contact) => (
                             <div class='flex items-center gap-3'>
-                                <info.icon class='h-5 w-5 text-cyan-400' />
-                                <a href={info.href} class='transition-colors hover:text-cyan-400'>
-                                    {info.value.replace(/^(mailto:|tel:)/, '')}
-                                </a>
+                                <contact.icon class='h-5 w-5 text-cyan-400' />
+                                {contact.href ? (
+                                    <a
+                                        href={contact.href}
+                                        class='transition-colors hover:text-cyan-400'
+                                    >
+                                        {contact.value}
+                                    </a>
+                                ) : (
+                                    <span>{contact.value}</span>
+                                )}
                             </div>
                         ))
                     }
                 </div>
 
                 <!-- Quick Links -->
-                <div class='flex flex-col gap-4 sm:flex-row' data-nosnippet>
+                <div class='flex flex-col gap-4 sm:flex-row'>
                     <a
                         href='#experience'
                         class='rounded-lg bg-gradient-to-r from-cyan-600 to-blue-600 px-8 py-4 text-center font-semibold text-white transition-all duration-300 hover:scale-105 hover:from-cyan-700 hover:to-blue-700 hover:shadow-lg hover:shadow-cyan-500/25'
