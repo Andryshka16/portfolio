@@ -3,26 +3,83 @@ import Analytics from '@vercel/analytics/astro'
 import '../styles/index.css'
 
 const CONFIG = {
-    title: 'Andrey Lapchik - Full-Stack Developer',
+    title: 'Andrey Lapchik — Full-Stack Developer | React, TypeScript, Node.js',
     description:
-        'Full-stack developer building high-performance applications and real-time systems. Passionate about clean code and optimal performance.',
+        'Full-stack developer in Riga building high-performance, real-time web applications. React, TypeScript, Node.js, NestJS, PixiJS, WebSockets.',
     url: 'https://andryshka.com',
     image: '/preview.png',
     author: 'Andrey Lapchik',
     keywords: [
         'full-stack developer',
+        'frontend engineer',
         'React developer',
         'Next.js developer',
         'Node.js developer',
         'TypeScript developer',
-        'crypto trading platform',
-        'e-commerce developer',
-        'freelance developer',
+        'NestJS',
+        'PixiJS',
+        'WebGL',
+        'WebSockets',
+        'real-time systems',
+        'iGaming developer',
+        'live casino frontend',
         'web developer Latvia',
         'Riga developer'
     ].join(', '),
     locale: 'en_US',
     type: 'website'
+}
+
+const PROFILE_SCHEMA = {
+    '@context': 'https://schema.org',
+    '@type': 'ProfilePage',
+    dateModified: new Date().toISOString().slice(0, 10),
+    mainEntity: {
+        '@type': 'Person',
+        '@id': `${CONFIG.url}/#person`,
+        name: 'Andrey Lapchik',
+        url: CONFIG.url,
+        image: `${CONFIG.url}/me.webp`,
+        jobTitle: 'Full-Stack Developer',
+        description: CONFIG.description,
+        email: 'mailto:contact@andryshka.com',
+        telephone: '+371-28176717',
+        address: {
+            '@type': 'PostalAddress',
+            addressLocality: 'Riga',
+            addressCountry: 'LV'
+        },
+        worksFor: {
+            '@type': 'Organization',
+            name: 'Proxy Live Solutions'
+        },
+        alumniOf: {
+            '@type': 'CollegeOrUniversity',
+            name: 'University of Latvia'
+        },
+        knowsAbout: [
+            'React',
+            'Next.js',
+            'TypeScript',
+            'Node.js',
+            'NestJS',
+            'PixiJS',
+            'WebGL',
+            'HTML5 Canvas',
+            'WebSockets',
+            'Protobuf',
+            'PostgreSQL',
+            'Redis',
+            'Docker',
+            'Real-time systems',
+            'Low-latency streaming',
+            'Frontend performance optimisation',
+            'iGaming',
+            'Live casino game clients'
+        ],
+        knowsLanguage: ['ru', 'en', 'lv'],
+        sameAs: ['https://www.linkedin.com/in/andryshka', 'https://github.com/Andryshka16']
+    }
 }
 ---
 
@@ -113,11 +170,9 @@ const CONFIG = {
         >
 
         <!-- Preload critical images -->
-        <link rel='preload' as='image' href='/me.png' />
-        <link rel='preload' as='image' href='/preview.png' />
+        <link rel='preload' as='image' href='/me.webp' />
 
         <!-- Resource hints for better performance -->
-        <link rel='prefetch' href='/CV.pdf' />
         <link rel='prefetch' href='/favicon.png' />
 
         <!-- Additional SEO -->
@@ -131,6 +186,9 @@ const CONFIG = {
         <meta http-equiv='X-Content-Type-Options' content='nosniff' />
         <meta http-equiv='X-XSS-Protection' content='1; mode=block' />
         <meta http-equiv='Referrer-Policy' content='strict-origin-when-cross-origin' />
+
+        <!-- Structured Data: ProfilePage -->
+        <script type='application/ld+json' set:html={JSON.stringify(PROFILE_SCHEMA)} is:inline />
     </head>
     <body class='bg-gray-900 text-gray-100 antialiased'>
         <slot />

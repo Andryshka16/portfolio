@@ -5,40 +5,43 @@ import { getYears } from '@/helpers'
 const PROJECTS = [
     {
         title: 'Proxy Live Solutions™',
-        subtitle: 'iGaming Technology Company',
+        subtitle: 'Live-Streamed Real-Money Gaming Platform',
         period: 'Dec 2025 - Present',
         role: 'Frontend Developer',
-        impact: 'Building interactive user interfaces and real-time web applications with modern frontend technologies.',
+        impact: 'Browser game clients for live-streamed real-money gaming, running on a tight frame and memory budget.',
         tag: 'Commercial',
-        tech: ['React', 'TypeScript', 'iGaming', 'Real-time UI'],
-        highlights: ['Interactive user interfaces', 'Real-time web applications'],
+        tech: ['React', 'TypeScript', 'PixiJS', 'WebGL', 'WebSockets'],
+        highlights: [
+            'Memory and GPU management on low-end devices',
+            'Compliance-driven config and localisation'
+        ],
         icon: Globe
     },
     {
         title: 'Cryptonit',
-        subtitle: 'High‑Performance Crypto Trading Platform (Solana)',
+        subtitle: 'Low-Latency Solana Trading Platform',
         period: 'Aug 2024 - Dec 2025',
-        role: 'Fullstack • ex‑Lead Frontend',
-        impact: 'Low‑latency Solana trading: real‑time UI, Protobuf WS, Redis caching.',
+        role: 'Full-stack • ex-Lead Frontend',
+        impact: 'The data layer behind a Solana trading terminal, from market feed through cache to the rendered book.',
         tag: 'Commercial',
         tech: ['React', 'TypeScript', 'NestJS', 'PostgreSQL', 'Redis'],
         highlights: [
-            'Advanced TradingView charts with custom overlays',
-            'Lossless Protobuf WebSocket streaming'
+            'TradingView charting against a live datafeed',
+            'Virtualised order book for high-frequency updates'
         ],
         icon: Rocket
     },
     {
-        title: 'Token Creation Platform',
-        subtitle: 'Token creation, wallet warming, and realtime trading tools',
+        title: 'Trading Dashboard',
+        subtitle: 'Multi-Account Portfolio Tooling (NDA)',
         period: '2024 - 2025',
         role: 'Frontend • international team • NDA',
-        impact: 'Built performant UI for token management and wallet warming with live data.',
+        impact: 'Streaming data layer and dashboard UI for operating many live accounts, with real-time per-account metrics.',
         tag: 'Commercial',
         tech: ['Vite', 'React', 'TypeScript', 'Tailwind', 'Zustand', 'Docker'],
         highlights: [
-            'Wallet warming dashboard with live performance metrics',
-            'Real-time trading tools and token data streaming'
+            'Live metrics across concurrent account sessions',
+            'Streaming state kept off the render path'
         ],
         icon: Globe
     }

@@ -26,3 +26,6 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# personal notes (CV drafts)
+.claude/linkedin/
