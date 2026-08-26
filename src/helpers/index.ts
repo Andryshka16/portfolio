@@ -1,4 +1,4 @@
-export * from './formatPeriod'
+export * from './period'
 export * from './formatTelegramMessage'
 export * from './sendTelegramMessage'
 export * from './extractIpFromRequest'

@@ -1,5 +1,4 @@
 ---
-// Sticky navigation header component
 import { Menu, House, Briefcase, GraduationCap, Code, MessageCircle, FileText } from '@lucide/astro'
 
 const NAV_LINKS = [
@@ -108,103 +107,89 @@ const NAV_LINKS = [
 </header>
 
 <script>
-    // Mobile menu toggle
-    const mobileMenuButton = document.getElementById('mobile-menu-button')
-    const mobileMenu = document.getElementById('mobile-menu')
-    const menuIcon = mobileMenuButton?.querySelector('svg')
+    const NAV_LINKS = '.nav-link, .mobile-nav-link'
 
-    mobileMenuButton?.addEventListener('click', () => {
-        mobileMenu?.classList.toggle('hidden')
+    const ICON_MENU =
+        '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>'
+    const ICON_CLOSE =
+        '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>'
 
-        // Toggle menu icon
-        if (menuIcon) {
-            if (mobileMenu?.classList.contains('hidden')) {
-                menuIcon.innerHTML =
-                    '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>'
-            } else {
-                menuIcon.innerHTML =
-                    '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>'
-            }
-        }
-    })
+    const menuButton = document.getElementById('mobile-menu-button')
+    const menu = document.getElementById('mobile-menu')
+    const menuIcon = menuButton?.querySelector('svg')
 
-    // Close mobile menu when clicking on a link
-    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link')
+    const setMenuOpen = (open: boolean) => {
+        menu?.classList.toggle('hidden', !open)
+        if (menuIcon) menuIcon.innerHTML = open ? ICON_CLOSE : ICON_MENU
+    }
 
-    mobileNavLinks.forEach((link) => {
-        link.addEventListener('click', () => {
-            mobileMenu?.classList.add('hidden')
-            if (menuIcon) {
-                menuIcon.innerHTML =
-                    '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>'
-            }
+    menuButton?.addEventListener('click', () => setMenuOpen(!!menu?.classList.contains('hidden')))
+
+    document
+        .querySelectorAll('.mobile-nav-link')
+        .forEach((link) => link.addEventListener('click', () => setMenuOpen(false)))
+
+    const HEADER_HEIGHT = 64
+
+    document.querySelectorAll(NAV_LINKS).forEach((link) => {
+        link.addEventListener('click', (event) => {
+            const href = link.getAttribute('href')
+            if (!href?.startsWith('#')) return
+
+            const target = document.getElementById(href.slice(1))
+            if (!target) return
+
+            event.preventDefault()
+            window.scrollTo({ top: target.offsetTop - HEADER_HEIGHT, behavior: 'smooth' })
         })
     })
 
-    // Smooth scrolling for navigation links
-    const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link')
+    const NAV_OVERRIDES: Record<string, string> = {
+        projects: '#experience',
+        testimonials: '#contact',
+        achievements: '#tech-stack'
+    }
 
-    navLinks.forEach((link) => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault()
-            const targetId = link.getAttribute('href')?.substring(1)
-            const targetElement = document.getElementById(targetId || '')
+    const sections = [...document.querySelectorAll<HTMLElement>('section[id]')]
+    const navLinks = [...document.querySelectorAll(NAV_LINKS)]
 
-            if (targetElement) {
-                const headerHeight = 64 // Height of the sticky header
-                const targetPosition = targetElement.offsetTop - headerHeight
+    const highlight = () => {
+        const position = window.scrollY + 100
 
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                })
-            }
-        })
-    })
+        const current = sections
+            .filter(({ offsetTop, offsetHeight }) => {
+                return position >= offsetTop && position < offsetTop + offsetHeight
+            })
+            .pop()
 
-    // Active link highlighting
-    const sections = document.querySelectorAll('section[id]')
-    const navLinkElements = document.querySelectorAll('.nav-link, .mobile-nav-link')
+        const activeHref = current ? (NAV_OVERRIDES[current.id] ?? `#${current.id}`) : null
 
-    const highlightActiveLink = () => {
-        const scrollPosition = window.scrollY + 100
+        navLinks.forEach((link) => {
+            const isActive = link.getAttribute('href') === activeHref
 
-        sections.forEach((section) => {
-            const sectionTop = (section as HTMLElement).offsetTop
-            const sectionHeight = (section as HTMLElement).offsetHeight
-            const sectionId = section.getAttribute('id')
+            link.classList.toggle('text-cyan-400', isActive)
+            link.classList.toggle('text-gray-300', !isActive)
 
-            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                navLinkElements.forEach((link) => {
-                    link.classList.remove('text-cyan-400')
-                    link.classList.add('text-gray-300')
-
-                    // Map sections to navigation items
-                    const linkHref = link.getAttribute('href')
-                    let shouldHighlight = false
-
-                    if (linkHref === `#${sectionId}`) {
-                        // Direct match
-                        shouldHighlight = true
-                    } else if (sectionId === 'projects' && linkHref === '#experience') {
-                        shouldHighlight = true
-                    } else if (sectionId === 'testimonials' && linkHref === '#contact') {
-                        // Testimonials section highlights Contact nav item
-                        shouldHighlight = true
-                    } else if (sectionId === 'achievements' && linkHref === '#tech-stack') {
-                        // Achievements section highlights Skills nav item
-                        shouldHighlight = true
-                    }
-
-                    if (shouldHighlight) {
-                        link.classList.remove('text-gray-300')
-                        link.classList.add('text-cyan-400')
-                    }
-                })
-            }
+            if (isActive) link.setAttribute('aria-current', 'page')
+            else link.removeAttribute('aria-current')
         })
     }
 
-    window.addEventListener('scroll', highlightActiveLink)
-    highlightActiveLink() // Initial call
+    const onScroll = (() => {
+        let queued = false
+
+        return () => {
+            if (queued) return
+
+            queued = true
+            requestAnimationFrame(() => {
+                highlight()
+                queued = false
+            })
+        }
+    })()
+
+    window.addEventListener('scroll', onScroll, { passive: true })
+
+    highlight()
 </script>

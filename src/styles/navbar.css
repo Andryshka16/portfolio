@@ -15,7 +15,7 @@
     transition: width 0.3s ease;
 }
 
-.nav-link.text-cyan-400::after,
-.mobile-nav-link.text-cyan-400::after {
+.nav-link[aria-current='page']::after,
+.mobile-nav-link[aria-current='page']::after {
     width: 100%;
 }

@@ -149,11 +149,6 @@ const PROFILE_SCHEMA = {
         <!-- Preconnect to external domains -->
         <link rel='preconnect' href='https://fonts.googleapis.com' />
         <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
-        <link rel='preconnect' href='https://api.telegram.org' />
-
-        <!-- DNS Prefetch -->
-        <link rel='dns-prefetch' href='//fonts.googleapis.com' />
-        <link rel='dns-prefetch' href='//fonts.gstatic.com' />
 
         <!-- Font Preloading -->
         <link
@@ -172,20 +167,12 @@ const PROFILE_SCHEMA = {
         <!-- Preload critical images -->
         <link rel='preload' as='image' href='/me.webp' />
 
-        <!-- Resource hints for better performance -->
-        <link rel='prefetch' href='/favicon.png' />
-
         <!-- Additional SEO -->
         <meta name='format-detection' content='telephone=yes' />
         <meta name='mobile-web-app-capable' content='yes' />
         <meta name='apple-mobile-web-app-capable' content='yes' />
         <meta name='apple-mobile-web-app-status-bar-style' content='black-translucent' />
         <meta name='apple-mobile-web-app-title' content='Andrey Lapchik' />
-
-        <!-- Security Headers (only valid meta tags) -->
-        <meta http-equiv='X-Content-Type-Options' content='nosniff' />
-        <meta http-equiv='X-XSS-Protection' content='1; mode=block' />
-        <meta http-equiv='Referrer-Policy' content='strict-origin-when-cross-origin' />
 
         <!-- Structured Data: ProfilePage -->
         <script type='application/ld+json' set:html={JSON.stringify(PROFILE_SCHEMA)} is:inline />

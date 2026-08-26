@@ -2,7 +2,9 @@ const extractLocationFromIp = async (ip?: string) => {
     if (!ip) return undefined
 
     try {
-        const response = await fetch(`https://ipinfo.io/${ip}/json`)
+        const response = await fetch(`https://ipinfo.io/${ip}/json`, {
+            signal: AbortSignal.timeout(2500)
+        })
 
         if (!response.ok) {
             throw new Error(`API error: ${response.status}`)

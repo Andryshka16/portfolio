@@ -25,9 +25,3 @@ button {
 ::-webkit-scrollbar-thumb:hover {
     background: #4b5563;
 }
-
-/* Custom focus styles */
-.focus-ring:focus {
-    outline: 2px solid #06b6d4;
-    outline-offset: 2px;
-}

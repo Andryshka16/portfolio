@@ -1,6 +1,6 @@
 ---
-// Hero component with enhanced design
-import { Mail, Phone, MapPin, CircleCheck } from '@lucide/astro'
+import { CircleCheck } from '@lucide/astro'
+import { CONTACTS } from '@/constants'
 
 enum ThemeEnum {
     CYAN = 'cyan',
@@ -9,26 +9,6 @@ enum ThemeEnum {
     GREEN = 'green',
     AMBER = 'amber'
 }
-
-const CONTACTS = [
-    {
-        name: 'Email',
-        icon: Mail,
-        value: 'contact@andryshka.com',
-        href: 'mailto:contact@andryshka.com'
-    },
-    {
-        name: 'Phone',
-        icon: Phone,
-        value: '+371 28176717',
-        href: 'tel:+37128176717'
-    },
-    {
-        name: 'Location',
-        icon: MapPin,
-        value: 'Riga, Latvia'
-    }
-]
 
 const TECHNOLOGIES = [
     { name: 'React/Next.js', theme: ThemeEnum.CYAN },
@@ -118,9 +98,8 @@ const THEMES = {
                 <!-- Description -->
                 <div class='space-y-5'>
                     <p class='max-w-2xl text-lg leading-relaxed text-gray-300 sm:text-xl'>
-                        Three years building real-time products for money-critical systems
-                        &mdash; live game clients, trading terminals, and the data layers behind
-                        them.
+                        Three years building real-time products for money-critical systems &mdash;
+                        live game clients, trading terminals, and the data layers behind them.
                     </p>
 
                     <div class='flex items-center gap-2 text-emerald-400'>

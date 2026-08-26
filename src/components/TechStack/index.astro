@@ -1,5 +1,4 @@
 ---
-// Skills component for the technical expertise section
 import { Monitor, Server, Settings, Globe } from '@lucide/astro'
 
 const FRONTEND = [
@@ -31,6 +30,36 @@ const LANGUAGES = [
     { name: 'English', level: 'Professional' },
     { name: 'Latvian', level: 'Fluent' }
 ]
+
+const CATEGORIES = [
+    {
+        title: 'Frontend Development',
+        icon: Monitor,
+        items: FRONTEND,
+        hover: 'hover:border-cyan-500/50 hover:shadow-cyan-500/25',
+        iconColor: 'text-cyan-400',
+        headingHover: 'group-hover:text-cyan-400',
+        bar: 'from-cyan-500 to-blue-500'
+    },
+    {
+        title: 'Backend Development',
+        icon: Server,
+        items: BACKEND,
+        hover: 'hover:border-green-500/50 hover:shadow-green-500/25',
+        iconColor: 'text-green-400',
+        headingHover: 'group-hover:text-green-400',
+        bar: 'from-green-500 to-emerald-500'
+    },
+    {
+        title: 'Tools & DevOps',
+        icon: Settings,
+        items: TOOLS,
+        hover: 'hover:border-orange-500/50 hover:shadow-orange-500/25',
+        iconColor: 'text-orange-400',
+        headingHover: 'group-hover:text-orange-400',
+        bar: 'from-orange-500 to-red-500'
+    }
+]
 ---
 
 <section id='tech-stack' class='bg-gray-900 py-20'>
@@ -43,104 +72,43 @@ const LANGUAGES = [
             </div>
         </h2>
         <div class='grid gap-8 md:grid-cols-3'>
-            <!-- Frontend -->
-
-            <div
-                class='group rounded-xl border border-gray-700/50 bg-gray-800/50 p-6 backdrop-blur-sm transition-all duration-300 hover:border-cyan-500/50 hover:bg-gray-800/70 hover:shadow-lg hover:shadow-cyan-500/25'
-            >
-                <div class='mb-6 text-center'>
-                    <Monitor
-                        class='mx-auto mb-4 h-12 w-12 text-cyan-400 transition-transform duration-300 group-hover:scale-110'
-                    />
-                    <h3
-                        class='text-xl font-bold text-white transition-colors duration-300 group-hover:text-cyan-400'
-                    >
-                        Frontend Development
-                    </h3>
-                </div>
-                <div class='space-y-3'>
-                    {
-                        FRONTEND.map((skill) => (
-                            <div class='flex items-center justify-between'>
-                                <span class='text-gray-300'>{skill.name}</span>
-                                <div class='h-2 w-20 overflow-hidden rounded-full bg-gray-700'>
-                                    <div
-                                        class={`h-full rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 transition-all duration-1000 ease-out`}
-                                        style={`width: ${skill.level}`}
-                                    />
-                                </div>
+            {
+                CATEGORIES.map((category) => {
+                    const Icon = category.icon
+                    return (
+                        <div
+                            class={`group rounded-xl border border-gray-700/50 bg-gray-800/50 p-6 backdrop-blur-sm transition-all duration-300 hover:bg-gray-800/70 hover:shadow-lg ${category.hover}`}
+                        >
+                            <div class='mb-6 text-center'>
+                                <Icon
+                                    class={`mx-auto mb-4 h-12 w-12 transition-transform duration-300 group-hover:scale-110 ${category.iconColor}`}
+                                />
+                                <h3
+                                    class={`text-xl font-bold text-white transition-colors duration-300 ${category.headingHover}`}
+                                >
+                                    {category.title}
+                                </h3>
                             </div>
-                        ))
-                    }
-                </div>
-            </div>
-
-            <!-- Backend -->
-
-            <div
-                class='group rounded-xl border border-gray-700/50 bg-gray-800/50 p-6 backdrop-blur-sm transition-all duration-300 hover:border-green-500/50 hover:bg-gray-800/70 hover:shadow-lg hover:shadow-green-500/25'
-            >
-                <div class='mb-6 text-center'>
-                    <Server
-                        class='mx-auto mb-4 h-12 w-12 text-green-400 transition-transform duration-300 group-hover:scale-110'
-                    />
-                    <h3
-                        class='text-xl font-bold text-white transition-colors duration-300 group-hover:text-green-400'
-                    >
-                        Backend Development
-                    </h3>
-                </div>
-                <div class='space-y-3'>
-                    {
-                        BACKEND.map((skill) => (
-                            <div class='flex items-center justify-between'>
-                                <span class='text-gray-300'>{skill.name}</span>
-                                <div class='h-2 w-20 overflow-hidden rounded-full bg-gray-700'>
-                                    <div
-                                        class={`h-full rounded-full bg-gradient-to-r from-green-500 to-emerald-500 transition-all duration-1000 ease-out`}
-                                        style={`width: ${skill.level}`}
-                                    />
-                                </div>
+                            <div class='space-y-3'>
+                                {category.items.map((skill) => (
+                                    <div class='flex items-center justify-between'>
+                                        <span class='text-gray-300'>{skill.name}</span>
+                                        <div class='h-2 w-20 overflow-hidden rounded-full bg-gray-700'>
+                                            <div
+                                                class={`h-full rounded-full bg-gradient-to-r transition-all duration-1000 ease-out ${category.bar}`}
+                                                style={`width: ${skill.level}`}
+                                            />
+                                        </div>
+                                    </div>
+                                ))}
                             </div>
-                        ))
-                    }
-                </div>
-            </div>
-
-            <!-- Tools & DevOps -->
-            <div
-                class='group rounded-xl border border-gray-700/50 bg-gray-800/50 p-6 backdrop-blur-sm transition-all duration-300 hover:border-orange-500/50 hover:bg-gray-800/70 hover:shadow-lg hover:shadow-orange-500/25'
-            >
-                <div class='mb-6 text-center'>
-                    <Settings
-                        class='mx-auto mb-4 h-12 w-12 text-orange-400 transition-transform duration-300 group-hover:scale-110'
-                    />
-                    <h3
-                        class='text-xl font-bold text-white transition-colors duration-300 group-hover:text-orange-400'
-                    >
-                        Tools & DevOps
-                    </h3>
-                </div>
-                <div class='space-y-3'>
-                    {
-                        TOOLS.map((skill) => (
-                            <div class='flex items-center justify-between'>
-                                <span class='text-gray-300'>{skill.name}</span>
-                                <div class='h-2 w-20 overflow-hidden rounded-full bg-gray-700'>
-                                    <div
-                                        class={`h-full rounded-full bg-gradient-to-r from-orange-500 to-red-500 transition-all duration-1000 ease-out`}
-                                        style={`width: ${skill.level}`}
-                                    />
-                                </div>
-                            </div>
-                        ))
-                    }
-                </div>
-            </div>
+                        </div>
+                    )
+                })
+            }
         </div>
     </div>
 
-    <!-- Language Proficiency -->
     <div class='max-w-8xl mx-auto mt-16 px-4 sm:px-6 lg:px-8'>
         <h3 class='mb-8 text-center text-2xl font-bold text-white'>Language Proficiency</h3>
         <div class='grid gap-6 md:grid-cols-2 lg:grid-cols-3'>
