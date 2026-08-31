@@ -1,34 +1,33 @@
 # build output
 dist/
 
-# generated types
-.astro/
-
-# vercel output
-.vercel/
+# claude code local config
+.claude/
 
 # dependencies
 node_modules/
-
-# logs
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-
 
 # environment variables
 .env
 .env.production
 
-# macOS-specific files
-.DS_Store
+# generated types
+.astro/
 
 # jetbrains setting folder
 .idea/
 
-# personal notes (CV drafts)
-.claude/linkedin/
-
 # local scripts
 scripts/
+
+# logs
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# macOS-specific files
+.DS_Store
+
+# vercel output
+.vercel/
